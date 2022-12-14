@@ -1,23 +1,23 @@
 const hamburger = document.querySelector('.hamburger'),
     menu = document.querySelector('.menu'),
-    closeElement = document.querySelector('.menu__close'),
-    closeElementThree = document.querySelector('.menu__SwitchPage'),
-    closeElementTwo = document.querySelector('.menu__overlay');
+    closeElement = document.querySelectorAll('#closeMenu');
 
 hamburger.addEventListener('click', () => {
     menu.classList.add('active');
 });
 
-closeElement.addEventListener('click', () => {
+function closeMenu() {
     menu.classList.remove('active');
+}
+
+closeElement.forEach(item => {
+    item.addEventListener('click', closeMenu);
 });
 
-closeElementTwo.addEventListener('click', () => {
-    menu.classList.remove('active');
-});
-
-closeElementThree.addEventListener('click', () => {
-    menu.classList.remove('active');
+document.addEventListener('keydown', (e) => {
+    if (e.code === "Escape" && menu.classList.contains('active')) {
+        closeMenu();
+    }
 });
 
 
@@ -27,3 +27,4 @@ const percents = document.querySelectorAll('.persents__title-persent'),
 percents.forEach( (item, i) => {
     scale[i].style.width = item.innerHTML;
 });
+
