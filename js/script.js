@@ -20,6 +20,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
 const percents = document.querySelectorAll('.persents__title-persent'),
     scale = document.querySelectorAll('.persents__scale span');
 
